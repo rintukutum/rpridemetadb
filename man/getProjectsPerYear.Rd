@@ -7,7 +7,7 @@
 getProjectsPerYear(year = "2017")
 }
 \arguments{
-\item{year}{numeric}
+\item{year}{numeric/character}
 }
 \description{
 Get PRIDE projects information from PRIDE database based on year

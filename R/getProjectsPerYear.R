@@ -1,7 +1,7 @@
 #' @title Get yearwise projects available at PRIDE database
 #' @description Get PRIDE projects information from PRIDE database based on year
 #' @examples getProjectsPerYear(year = 2017)
-#' @param year numeric
+#' @param year numeric/character
 #' @export
 getProjectsPerYear <- function(year='2017'){
   yearsAvail <- getArchiveYears()

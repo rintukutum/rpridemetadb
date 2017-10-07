@@ -1,5 +1,9 @@
+#' @title Get meta information about a PRIDE project
+#' @description Download meta file information based on PRIDE uri
+#' @param uri uri of PRIDE archive
+#' @examples uri <- 'ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/01/PXD003701/'
+#' pmeta <- getProjectMeta(uri)
 getProjectMeta <- function(uri){
-  # uri <- 'ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/01/PXD003701/'
   status.uri <- suppressWarnings(RCurl::url.exists(uri))
   if(status.uri){
     content <- getMeta(uri = uri)
