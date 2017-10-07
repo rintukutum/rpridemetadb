@@ -6,6 +6,14 @@
 \usage{
 checkRawFiles(meta, size = TRUE)
 }
+\arguments{
+\item{meta}{metafile downloaded from PRIDE using getProjectMeta function}
+}
 \description{
 extract raw files from meta files of a PRIDE project
+}
+\examples{
+uri <- 'ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/01/PXD003701/'
+pmeta <- getProjectMeta(uri)
+checkRawFiles(pmeta)
 }

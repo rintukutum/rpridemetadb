@@ -1,6 +1,11 @@
 #' @title  check raw files
 #' @description extract raw files from meta files of a PRIDE project
+#' @param meta metafile downloaded from PRIDE using getProjectMeta function
+#' @examples uri <- 'ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/01/PXD003701/'
+#' pmeta <- getProjectMeta(uri)
+#' checkRawFiles(pmeta)
 #' @export
+#'
 checkRawFiles <- function(meta, size=TRUE){
   idx.raw <- meta$meta.df$TYPE %in% 'RAW'
   if(any(idx.raw)){
@@ -19,7 +24,13 @@ checkRawFiles <- function(meta, size=TRUE){
 
 #' @title Get raw files
 #' @description download raw files
+#' @param meta metafile downloaded from PRIDE using getProjectMeta function
 #' @export
+#' @examples uri <- 'ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2017/01/PXD003701/'
+#' pmeta <- getProjectMeta(uri)
+#' # caution before downloading please check file size using checkRawFiles function
+#' checkRawFiles(pmeta)
+#' getRawFiles(meta = pmeta)
 getRawFiles <- function(meta, path=NULL){
   if(is.null(path)){
     cat('using current directory to save files\n')
@@ -50,9 +61,8 @@ getRawFiles <- function(meta, path=NULL){
         file.rename(destFile, gsub('xyzyx', ' ',destFile))
       }
     }
-  cat('Downloading finish\n')
+    cat('Downloading finish\n')
   }else{
-    raw.files <- NA
+    cat('Nothing to download!\n')
   }
-  return(raw.files)
 }
