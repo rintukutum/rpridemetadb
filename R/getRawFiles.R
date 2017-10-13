@@ -13,11 +13,11 @@ checkRawFiles <- function(meta, size=TRUE){
     if(size){
       size <- sum(meta$meta.df$size.gb[idx.raw])
       raw.files <- list(raw.files = raw.files,
-                        size = size)
+                        total.size.gb = round(size,2))
     }
   }else{
     raw.files <- list(raw.files = NA,
-                      size = NA)
+                      total.size.gb = NA)
   }
   return(raw.files)
 }
